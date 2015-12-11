@@ -78,6 +78,15 @@ public class ItemListActivity extends AppCompatActivity
      */
     @Override
     public void onItemSelected(String id) {
+
+        //Cogemos  el valor del item doblepanel que pasa un boolean desde un archivo xml, para Land es true y para el resto false
+        Boolean bool = getResources().getBoolean(R.bool.doblepanel);
+        if (bool) {
+            //Cuando esta tumbado muestra una toast que pone tumbado
+            Toast.makeText(ItemListActivity.this, "Tumbado",
+                    Toast.LENGTH_SHORT).show();
+        }
+
         if (mTwoPane) {
             // In two-pane mode, show the detail view in this activity by
             // adding or replacing the detail fragment using a
