@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!---Creamos un relative layout para colocar tanto el fragment como el frame que tiene el texto -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+    <!---Creamos el fragment en este layout ya que por defecto viene vacio -->
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/item_list"
+        android:name="com.example.miguel.examenpmdm.ItemListFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toStartOf="@+id/item_detail_container"
+        tools:context=".ItemListActivity"
+        tools:layout="@android:layout/list_content" />
+    <!---Creamos el frame layou que contendra los textos -->
+    <FrameLayout
+        android:id="@+id/item_detail_container"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_weight="3" />
+
+
+</RelativeLayout>
