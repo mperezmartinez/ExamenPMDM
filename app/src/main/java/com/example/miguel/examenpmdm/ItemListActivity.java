@@ -1,5 +1,6 @@
 package com.example.miguel.examenpmdm;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 /**
@@ -90,9 +93,28 @@ public class ItemListActivity extends AppCompatActivity
         } else {
             // In single-pane mode, simply start the detail activity
             // for the selected item ID.
-            Intent detailIntent = new Intent(this, ItemDetailActivity.class);
-            detailIntent.putExtra(ItemDetailFragment.ARG_ITEM_ID, id);
-            startActivity(detailIntent);
+
+
+            //Cambiamos el intent normal por un for result
+            Intent intent1 = new Intent(this, ItemDetailActivity.class);
+            intent1.putExtra(ItemDetailFragment.ARG_ITEM_ID, id);
+
+            startActivityForResult(intent1, 1);
+
+        }
+    }
+
+    //Creamos el metodo que ejecuta el on result que si el codigo es 1, y Result_ok,sale una toast que pone activity cerrada
+    @Override
+    public void onActivityResult(int requestCode, int resultcode, Intent data) {
+
+        if (requestCode == 1) {
+
+            if (resultcode == Activity.RESULT_OK) {
+
+                Toast.makeText(getApplicationContext(), "Activity Cerrada", Toast.LENGTH_SHORT).show();
+            }
+
         }
     }
 }
